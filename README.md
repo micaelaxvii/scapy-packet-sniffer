@@ -1,10 +1,11 @@
 ## Packet Sniffer *(Work in Progress)*
 
 ### Requirements
-Python 3.9 or later recommended
-Scapy
-Appropriate permissions to capture network traffic
-A supported network interface
+
+- Python 3.9 or later (recommended)
+- Scapy
+- Appropriate permissions to capture network traffic
+- A supported network interface
 
 
 ### Installation
