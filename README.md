@@ -21,10 +21,11 @@ Depending on your operating system, you may also need to install packet-capture 
 
 
 ### Command-Line Arguments
--n, --network_interface	Network interface to monitor
--d, --detailed_view	Display detailed packet information
--l, --logging	Save captured packets to a PCAP file
--h, --help	Display the help message
+
+- `-n`, `--network_interface`: Network interface to monitor (**required**).
+- `-d`, `--detailed_view`: Display detailed packet information.
+- `-l`, `--logging`: Save captured packets to a PCAP file.
+- `-h`, `--help`: Display the help message.
 
 
 ### Example usage
