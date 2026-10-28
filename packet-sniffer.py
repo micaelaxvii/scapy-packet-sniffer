@@ -8,7 +8,7 @@ import os
 def user_input():
 
     parser = argparse.ArgumentParser()
-    parser.add_argument('-n', '--network_interface', type=str, help="Network interface to be monitored.", required=True)
+    parser.add_argument('-n', '--network_interface', type=str, help="Network interface to monitor.", required=True)
     parser.add_argument('-l', '--logging', action='store_true', help="[Optional] Enable logging to a .pcap file.")
     parser.add_argument('-d', '--detailed_view', action='store_true', help="[Optional] Enable detailed view of packets.")
 
@@ -75,7 +75,7 @@ def capture_logging(capture):
 
         if not os.path.exists(pcap_file):
             wrpcap(pcap_file, capture)
-            print(f"Saved as {pcap_file}")
+            print(f"Saved in {pcap_file}")
             return False
 
         else:
@@ -85,7 +85,7 @@ def capture_logging(capture):
 
                 if c == "O":
                     wrpcap(pcap_file, capture)
-                    print(f"Saved into {pcap_file}")
+                    print(f"Saved in {pcap_file}")
                     return False
 
                 elif c == "N":
