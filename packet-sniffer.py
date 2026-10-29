@@ -81,8 +81,7 @@ def capture_logging(capture):
 
         else:
             while True:
-                c = input(
-                    "File already exists. Overwrite it (O) or choose a new filename (N)? (Q to quit): ").strip().upper()
+                c = input("File already exists. Overwrite it (O) or choose a new filename (N)? (Q to quit): ").strip().upper()
 
                 if c == "O":
                     wrpcap(pcap_file, capture)
