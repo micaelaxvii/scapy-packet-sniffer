@@ -6,8 +6,8 @@ import os
 
 
 def user_input():
-
     parser = argparse.ArgumentParser()
+
     parser.add_argument('-n', '--network_interface', type=str, help="Network interface to monitor.", required=True)
     parser.add_argument('-l', '--logging', action='store_true', help="[Optional] Enable logging to a .pcap file.")
     parser.add_argument('-d', '--detailed_view', action='store_true', help="[Optional] Enable detailed view of packets.")
@@ -18,9 +18,11 @@ def user_input():
 
 def show_packet(packet, args):
     timestamp = datetime.datetime.fromtimestamp(float(packet.time))
+
     if args.detailed_view:
         print("Timestamp:", timestamp, "Size:", len(packet), "bytes")
         packet.show()
+
     else:
         print(timestamp, packet.summary(), len(packet), "bytes")
 
@@ -29,7 +31,7 @@ def packet_capture(args):
 
     print("Starting capture... Press ENTER to stop capture. (Ctrl + C to force stop.)")
     time.sleep(2)
-    sniffer = AsyncSniffer(iface=args.network_interface, prn=lambda packet: show_packet(packet, args))
+    sniffer = AsyncSniffer(iface=args.network_interface, prn=lambda packet: show_packet(packet, args), store=True)
     
     try:
         sniffer.start()
@@ -37,7 +39,6 @@ def packet_capture(args):
         input("Press ENTER to stop capturing and continue...\n")
         
     except KeyboardInterrupt:
-
         print("\nForce stopping capture...")
 
     finally:
@@ -49,7 +50,7 @@ def packet_capture(args):
             capture = sniffer.results
             print(f"\nCapture stopped. Total packets: {len(capture)}")
             
-        if args.logging == True:
+        if args.logging:
             capture_logging(capture)
 
 
