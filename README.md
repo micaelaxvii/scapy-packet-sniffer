@@ -4,7 +4,6 @@
 
 - Python 3.9 or later (recommended)
 - Scapy
-- Appropriate permissions to capture network traffic
 - A supported network interface
 
 
