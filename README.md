@@ -1,4 +1,4 @@
-## Packet Sniffer *(Work in Progress)*
+## Packet Sniffer
 
 ### Requirements
 
